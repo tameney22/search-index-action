@@ -13,3 +13,6 @@ jobs:
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
+      # Use the output from the `hello` step
+    - name: Get the search index
+      run: echo "The index contains: ${{ steps.hello.outputs.searchIndex }}"
