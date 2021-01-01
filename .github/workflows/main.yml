@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: actions/searchIndexAction@v1.1
+      uses: searchIndexAction
       with:
         who-to-greet: 'Yoseph Tamene'
     # Use the output from the `hello` step
