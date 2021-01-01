@@ -7,9 +7,9 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: actions/hello-world-javascript-action@v1.3
+      uses: actions/searchIndexAction@v1.3
       with:
-        who-to-greet: 'Yoseph Mandefro'
+        who-to-greet: 'Yoseph Tamene'
     # Use the output from the `hello` step
     - name: Get the index
       run: echo "The search index content ${{ steps.hello.outputs.index }}"
