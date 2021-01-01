@@ -14,5 +14,5 @@ jobs:
     - name: Get the index
       run: echo "The search index content ${{ steps.hello.outputs.index }}"
     # Use the output from the `hello` step
-    # - name: Get the search index
-    #   run: echo " ${{ steps.hello.outputs.searchIndex }}"
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"
