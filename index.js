@@ -107,7 +107,7 @@ try {
 //   console.log(`Hello ${nameToGreet}!`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
-  let index = main();
+//   let index = main();
   core.setOutput("index", "it works!");
   // Get the JSON webhook payload for the event that triggered the workflow
 //   const payload = JSON.stringify(github.context.payload, undefined, 2)

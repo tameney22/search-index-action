@@ -1,15 +1,21 @@
 name: 'Search Index Action'
+author: "Yoseph Tamene"
 description: 'Creates a search index using the xmls'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
+  xml-directory:
+    description: 'The directory where the xml files are located'
+    default: './'
+  index-directory:
+    description: 'The directory where the output index.json file is placed'
+    default: './'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
   index: 
-    description: 'The search index'
+    description: 'The search index to be saved in index.json'
+  time: # id of output
+    description: 'The time the action was run'
 runs:
   using: 'node12'
   main: 'index.js'
+branding:
+  icon: 'search'
+  color: 'blue
