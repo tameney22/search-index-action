@@ -23,6 +23,6 @@ The search index to be saved in index.json
 
 ## Example usage
 
-uses: actions/hello-world-javascript-action@v1.1
+uses: actions/search-index-action@v1.1
 with:
   who-to-greet: 'Mona the Octocat'
