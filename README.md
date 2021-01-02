@@ -3,15 +3,23 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-### `who-to-greet`
+### `xml-directory`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The directory where the xml files are located. Default `"./"`.
+
+### `index-directory`
+
+**Required** The directory where the output index.json file is placed. Default `"./"`.
 
 ## Outputs
 
 ### `time`
 
 The time we greeted you.
+
+### `index`
+
+The search index to be saved in index.json
 
 ## Example usage
 
