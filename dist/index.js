@@ -11,11 +11,11 @@ const { DOMParser } = __webpack_require__(972);
 const fs = __webpack_require__(747);
 const path = __webpack_require__(622);
 
-const fromPath = './xmls';
+// const fromPath = './xmls';
 
-const xmls = (/* unused pure expression or super */ null && (["b.xml", "br.xml", "p.xml", "t.xml"]));
+const xmls = ["b.xml", "br.xml", "p.xml", "t.xml"];
 
-function main() {    
+function main(fromPath) {    
     const searchIndex = Array();
     xmls.forEach((fileName, index) => {
         const xmlFilePath = path.join(fromPath, fileName);
@@ -112,10 +112,11 @@ try {
   // `who-to-greet` input defined in action metadata file
 //   const nameToGreet = core.getInput('who-to-greet');
 //   console.log(`Hello ${nameToGreet}!`);
+  const xmlPath = core.getInput('xml-directory')
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
-//   let index = main();
-  core.setOutput("index", "it works!");
+  let index = main(xmlPath);
+  core.setOutput("index", index);
   // Get the JSON webhook payload for the event that triggered the workflow
 //   const payload = JSON.stringify(github.context.payload, undefined, 2)
 //   console.log(`The event payload: ${payload}`);
