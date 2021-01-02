@@ -112,11 +112,14 @@ try {
   // `who-to-greet` input defined in action metadata file
 //   const nameToGreet = core.getInput('who-to-greet');
 //   console.log(`Hello ${nameToGreet}!`);
-  const xmlPath = core.getInput('xml-directory')
+  const xmlPath = core.getInput('xml-directory');
+  const indexPath = core.getInput('index-directory');
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
   let index = main(xmlPath);
   core.setOutput("index", index);
+  // Write to the given directory
+  fs.writeFileSync(path.join(indexPath, "index.json"), JSON.stringify(index));
   // Get the JSON webhook payload for the event that triggered the workflow
 //   const payload = JSON.stringify(github.context.payload, undefined, 2)
 //   console.log(`The event payload: ${payload}`);
