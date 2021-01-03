@@ -124,7 +124,7 @@ try {
     console.log("File output path:", outputPath);
     // If the directory doesn't exist, create it
     if (!fs.existsSync(indexPath)){
-        fs.mkdirSync(indexPath);
+        fs.mkdirSync(indexPath, { recursive: true });
     }
     fs.writeFileSync(outputPath, JSON.stringify(index));
 } catch (error) {
