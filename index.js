@@ -113,7 +113,9 @@ try {
   core.setOutput("index", index);
   console.log(JSON.stringify(index[0]))
   // Write to the given directory
-  fs.writeFileSync(path.join(indexPath, "index.json"), JSON.stringify(index));
+  const outputPath = path.join(indexPath, "index.json")
+  console.log("THE PATH IS:", outputPath);
+  fs.writeFileSync(outputPath, JSON.stringify(index));
   // Get the JSON webhook payload for the event that triggered the workflow
 //   const payload = JSON.stringify(github.context.payload, undefined, 2)
 //   console.log(`The event payload: ${payload}`);
