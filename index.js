@@ -111,6 +111,7 @@ try {
   core.setOutput("time", time);
   let index = main(xmlPath);
   core.setOutput("index", index);
+  console.log(JSON.stringify(index[0]))
   // Write to the given directory
   fs.writeFileSync(path.join(indexPath, "index.json"), JSON.stringify(index));
   // Get the JSON webhook payload for the event that triggered the workflow
