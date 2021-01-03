@@ -1,16 +1,18 @@
 name: 'Search Index Action'
 author: "Yoseph Tamene"
-description: 'Creates a search index using the xmls'
+description: 'Creates a search index using the xmls in the directory provided.'
 inputs:
+  xml-list:
+    description: 'List of xml files to parse in the xml-directory'
+    required: true
   xml-directory:
     description: 'The directory where the xml files are located'
+    required: true
     default: './'
   index-directory:
     description: 'The directory where the output index.json file is placed'
     default: './'
 outputs:
-  index: 
-    description: 'The search index to be saved in index.json'
   time: # id of output
     description: 'The time the action was run'
 runs:

@@ -4,11 +4,7 @@ const { DOMParser } = require('xmldom');
 const fs = require('fs');
 const path = require('path');
 
-// const fromPath = './xmls';
-
-const xmls = ["b.xml", "br.xml", "p.xml", "t.xml"];
-
-function main(fromPath) {    
+function main(fromPath, xmls) {    
     const searchIndex = Array();
     xmls.forEach((fileName, index) => {
         const xmlFilePath = path.join(fromPath, fileName);
@@ -102,18 +98,22 @@ function main(fromPath) {
 }
 
 try {
-    // `who-to-greet` input defined in action metadata file
-    //   const nameToGreet = core.getInput('who-to-greet');
-    //   console.log(`Hello ${nameToGreet}!`);
     const xmlPath = core.getInput('xml-directory');
     const indexPath = core.getInput('index-directory');
+    const xmlstr = core.getInput('xml-list');
+
+    const xmlList = xmlstr.split(" ");
+    console.log("List of xml filenames:", xmlList);
+
     const time = (new Date()).toTimeString();
     core.setOutput("time", time);
-    let index = main(xmlPath);
-    core.setOutput("index", index);
-    console.log(JSON.stringify(index[0]))
+
+    let index = main(xmlPath, xmlList);
+    
+    console.log("Sample index record:", JSON.stringify(index[0]));
+
     // Write to the given directory
-    const outputPath = path.join(indexPath, "index.json")
+    const outputPath = path.join(indexPath, "index.json");
     console.log("File output path:", outputPath);
     // If the directory doesn't exist, create it
     if (!fs.existsSync(indexPath)){

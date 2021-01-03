@@ -1,28 +1,33 @@
-# Testing JS Hello World function
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+# Search Index JSON Generator Action
+This action parses xml documents and creates a search index for use in lunr.js.
 
 ## Inputs
 
+### `xml-list`
+
+**Required** A space separated string of xml filenames to be parsed.
+
 ### `xml-directory`
 
-**Required** The directory where the xml files are located. Default `"./"`.
+**Required** The directory where the xml files are located. Default `./`.
 
 ### `index-directory`
 
-**Required** The directory where the output index.json file is placed. Default `"./"`.
+**Required** The directory where the output index.json file is placed. Default `./`.
 
 ## Outputs
 
 ### `time`
 
-The time we greeted you.
-
-### `index`
-
-The search index to be saved in index.json
+The time the action was ran. For use in logging.
 
 ## Example usage
 
-uses: actions/search-index-action@v1.1
-with:
-  who-to-greet: 'Mona the Octocat'
+```yaml
+uses: tameney22/search-index-action@v1.0
+      id: index
+      with:
+        xml-list: 'b.xml br.xml p.xml t.xml'
+        xml-directory: './xmls'
+        index-directory:  './output/inHere'
+```
