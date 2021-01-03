@@ -102,23 +102,24 @@ function main(fromPath) {
 }
 
 try {
-  // `who-to-greet` input defined in action metadata file
-//   const nameToGreet = core.getInput('who-to-greet');
-//   console.log(`Hello ${nameToGreet}!`);
-  const xmlPath = core.getInput('xml-directory');
-  const indexPath = core.getInput('index-directory');
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  let index = main(xmlPath);
-  core.setOutput("index", index);
-  console.log(JSON.stringify(index[0]))
-  // Write to the given directory
-  const outputPath = path.join(indexPath, "index.json")
-  console.log("THE PATH IS:", outputPath);
-  fs.writeFileSync(outputPath, JSON.stringify(index));
-  // Get the JSON webhook payload for the event that triggered the workflow
-//   const payload = JSON.stringify(github.context.payload, undefined, 2)
-//   console.log(`The event payload: ${payload}`);
+    // `who-to-greet` input defined in action metadata file
+    //   const nameToGreet = core.getInput('who-to-greet');
+    //   console.log(`Hello ${nameToGreet}!`);
+    const xmlPath = core.getInput('xml-directory');
+    const indexPath = core.getInput('index-directory');
+    const time = (new Date()).toTimeString();
+    core.setOutput("time", time);
+    let index = main(xmlPath);
+    core.setOutput("index", index);
+    console.log(JSON.stringify(index[0]))
+    // Write to the given directory
+    const outputPath = path.join(indexPath, "index.json")
+    console.log("File output path:", outputPath);
+    // If the directory doesn't exist, create it
+    if (!fs.existsSync(outputPath)){
+        fs.mkdirSync(outputPath);
+    }
+    fs.writeFileSync(outputPath, JSON.stringify(index));
 } catch (error) {
-  core.setFailed(error.message);
+    core.setFailed(error.message);
 }
