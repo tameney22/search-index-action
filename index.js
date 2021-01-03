@@ -116,8 +116,8 @@ try {
     const outputPath = path.join(indexPath, "index.json")
     console.log("File output path:", outputPath);
     // If the directory doesn't exist, create it
-    if (!fs.existsSync(outputPath)){
-        fs.mkdirSync(outputPath);
+    if (!fs.existsSync(indexPath)){
+        fs.mkdirSync(indexPath);
     }
     fs.writeFileSync(outputPath, JSON.stringify(index));
 } catch (error) {
