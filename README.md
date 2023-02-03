@@ -1,5 +1,6 @@
-# Search Index JSON Generator Action
-This action parses xml documents and creates a search index for use in lunr.js.
+# [GitHub Action] Search Index JSON Generator
+
+This action parses xml documents and creates a search index for use in lunr.js by the [HUON D'AUVERGNE DIGITAL ARCHIVE](https://www.huondauvergne.org/) project ([GitHub Repo](https://github.com/SteveWLU/hda)).
 
 ## Inputs
 
