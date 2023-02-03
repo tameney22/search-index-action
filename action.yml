@@ -1,23 +1,23 @@
-name: 'Search Index Action'
+name: "Search Index Action"
 author: "Yoseph Tamene"
-description: 'Creates a search index using the xmls in the directory provided.'
+description: "Creates a search index using the xmls in the directory provided."
 inputs:
   xml-list:
-    description: 'List of xml files to parse in the xml-directory'
+    description: "List of xml files to parse in the xml-directory"
     required: true
   xml-directory:
-    description: 'The directory where the xml files are located'
+    description: "The directory where the xml files are located"
     required: true
-    default: './'
+    default: "./"
   index-directory:
-    description: 'The directory where the output index.json file is placed'
-    default: './'
+    description: "The directory where the output index.json file is placed"
+    default: "./"
 outputs:
   time: # id of output
-    description: 'The time the action was run'
+    description: "The time the action was run"
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
 branding:
-  icon: 'search'
-  color: 'blue'
+  icon: "search"
+  color: "blue"
